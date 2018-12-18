@@ -41,7 +41,7 @@ def image(surface, node):
     if not base_url and node.url:
         base_url = os.path.dirname(node.url) + '/'
     url = parse_url(node.get('{http://www.w3.org/1999/xlink}href'), base_url)
-    if url is None:
+    if not url.path:
         return
     image_bytes = node.fetch_url(url, 'image/*')
 
